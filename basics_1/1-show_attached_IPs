@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script displays all active IPv4 IPs on the machine
 
-hostname -I | tr ' ' '\n' | grep -v '^$'
+ifconfig | grep -w "inet" | awk '{print $2}' | grep -v "127.0.0.1"
